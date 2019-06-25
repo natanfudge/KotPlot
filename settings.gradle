@@ -1,0 +1,4 @@
+rootProject.name = 'KotPlot'
+
+
+enableFeaturePreview('GRADLE_METADATA')

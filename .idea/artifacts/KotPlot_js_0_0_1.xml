@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KotPlot-js-0.0.1">
+    <output-path>C:\Users\natan\Desktop\KotPlot\build\libs</output-path>
+    <root id="archive" name="KotPlot-js-0.0.1.jar">
+      <element id="module-output" name="com.example.KotPlot.jsMain" />
+    </root>
+  </artifact>
+</component>
