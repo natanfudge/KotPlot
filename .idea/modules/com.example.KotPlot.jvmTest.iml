@@ -5,8 +5,8 @@
       <configuration version="3" platform="JVM 1.6" useProjectSettings="false" isTestModule="true" externalProjectId="KotPlot">
         <sourceSets>
           <sourceSet>com.example.KotPlot.jvmMain</sourceSet>
-          <sourceSet>com.example.KotPlot.commonTest</sourceSet>
           <sourceSet>com.example.KotPlot.commonMain</sourceSet>
+          <sourceSet>com.example.KotPlot.commonTest</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <compilerSettings>

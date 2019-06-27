@@ -15,6 +15,7 @@ class SerializationTests {
     class Wrapper(val inlined: Inlined)
 
     object Serializer : InlineSerializer<Inlined>(Inlined::class)
+
     @Serializable(Serializer::class)
     class Inlined(val str: String)
 
