@@ -1,12 +1,11 @@
 package models
 
-import base.Test
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import temp.EnumSerialNameSerializer
 
 @Serializable
-data class LineType(val shape: Shape = Shape.linear)
+data class LineType(val shape: Shape)
 
 object ShapeDeserializer : EnumSerialNameSerializer<Shape>(Shape::class)
 

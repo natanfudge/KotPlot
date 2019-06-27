@@ -16,7 +16,7 @@ import models.*
 fun Plot2D.toHtml(): String {
     val json = Json(JsonConfiguration.Stable)
     val tracesParsed = json.stringify(Trace.serializer().list,data)
-    val layoutParsed = json.stringify(Layout.serializer(),layout)
+    val layoutParsed = if(layout != null) json.stringify(Layout.serializer(),layout) else null
 
     return createHTML().html {
         head {
@@ -27,7 +27,7 @@ fun Plot2D.toHtml(): String {
                     href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
                 )
             }
-            title(layout.title)
+            if(layout!=null) title(layout.title)
         }
         body {
             div { id = "plot" }
@@ -38,6 +38,7 @@ fun Plot2D.toHtml(): String {
                         'plot',
                         $tracesParsed,
                         $layoutParsed,
+                        
                         {showSendToCloud: true});
                     """.trimIndent()
                 }

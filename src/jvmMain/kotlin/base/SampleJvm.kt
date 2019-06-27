@@ -1,11 +1,8 @@
 package base
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
-import temp.EnumSerialNameSerializer
 import java.awt.Desktop
 import java.io.File
 
@@ -34,18 +31,22 @@ fun main() {
     val points = listOf(Point(0, 0), Point(1, 1), Point(2, 2))
     val points2 = listOf(Point(1, 1), Point(1, 1), Point(2, 2))
 
+
     val plot = KotPlot.plot {
-        scatterTrace(points = points, mode = TraceMode.Lines)
+        scatterTrace(points = points)
 //        scatterTrace(points = points2, mode = TraceMode.`lines+markers`)
 
-        layout(
-            xAxis = Axis(title = "My x values"),
-            yAxis = Axis(title = "My y values")
-        )
+//        layout(
+//            xAxis = Axis(title = "My x values"),
+//            yAxis = Axis(title = "My y values")
+//        )
 
     }
+
     val json = Json(JsonConfiguration.Stable)
-    println(json.stringify(Trace.serializer(),plot.data[0]))
+    val str = json.stringify(Plot2D.serializer(),plot)
+//    val parsed = json.toJson(Trace.serializer(), str)
+    println(str)
 
 
 //    println(json.stringify(Wrapper.serializer(), Wrapper(Test.Foo)))
@@ -53,13 +54,3 @@ fun main() {
 
 }
 
-@Serializable
-class Wrapper(val test: Test)
-
-object TestSerializer : EnumSerialNameSerializer<Test>(Test::class)
-
-@Serializable(with = TestSerializer::class)
-enum class Test {
-    @SerialName("Bar") // Will be serialized to "Bar"
-    Foo
-}

@@ -2,6 +2,7 @@ package models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import temp.InlineSerializer
 import temp.JsName
 
 
@@ -9,26 +10,32 @@ import temp.JsName
 data class Trace internal constructor(
     val x: List<Double>,
     val y: List<Double>,
-    val text : List<String?>,
+    val text: List<String?>,
     val name: String,
-    val mode: TraceMode,
-    val type: TraceType,
+    val mode: TraceMode?,
+    val type: TraceType = TraceType.scatter,
     val marker: Marker,
     @SerialName("line")
     val lineType: LineType
 )
 
-class TraceMode private  constructor(val mode : String) {
-    operator fun plus(other : TraceMode) = TraceMode("${this.mode}+${other.mode}")
+enum class TraceMode {
 
-    companion object{
-        val Lines = TraceMode("lines")
-        val Markers = TraceMode("markers")
-    }
+    /**
+     * Lines will connect between the points.
+     */
+    @SerialName("lines")
+    Lines,
 
-////    @JsName("linesMarkers")
-////    `lines+markers`,
-//    markers("markers")
+    /**
+     * Markers will appear at the points' location.
+     */
+    @SerialName("markers")
+    Markers,
+    @SerialName("markers+lines")
+    LinesAndMarkers
+
+
 }
 
 enum class TraceType {
@@ -36,7 +43,7 @@ enum class TraceType {
 }
 
 @Serializable
-data class Marker(val symbol : Symbol = Symbol.circle, val size : Int = 6)
+data class Marker(val symbol: Symbol, val size: Int)
 
 enum class Symbol {
     circle,

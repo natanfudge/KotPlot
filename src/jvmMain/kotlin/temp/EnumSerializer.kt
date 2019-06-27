@@ -28,3 +28,4 @@ open class EnumSerialNameSerializer<E : Enum<E>>(
 
 inline fun <reified A : Annotation> Enum<*>.getEnumFieldAnnotation(): A? =
     javaClass.getDeclaredField(name).getAnnotation(A::class.java)
+

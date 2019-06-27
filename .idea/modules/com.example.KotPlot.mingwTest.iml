@@ -4,8 +4,8 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="Native " useProjectSettings="false" isTestModule="true" externalProjectId="KotPlot">
         <sourceSets>
-          <sourceSet>com.example.KotPlot.commonTest</sourceSet>
           <sourceSet>com.example.KotPlot.mingwMain</sourceSet>
+          <sourceSet>com.example.KotPlot.commonTest</sourceSet>
           <sourceSet>com.example.KotPlot.commonMain</sourceSet>
         </sourceSets>
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
