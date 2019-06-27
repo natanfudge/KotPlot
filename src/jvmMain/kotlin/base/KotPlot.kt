@@ -13,19 +13,28 @@ class Plot2DBuilder {
 
     //TODO: use @paramof or dataarg when it's a thing
     /**
+     *@param points The points to be traced
      *@param name The trace name appears as the list of labels that identifies the trace and on hover.
-     *@param marker Determines the appearance of each point in the plot
+     *@param mode Determines the drawing mode for this scatter trace.
+     * If the provided `mode` includes "text" then the `text` field of the points appear at the coordinates.
+     * Otherwise, the `text` elements appear on hover.
+     * @param marker Determines the appearance of each point in the plot.
      */
-    fun trace(
+    fun scatterTrace(
         points: Iterable<Point>,
-        name: String? = null,
-        type: TraceType = TraceType.scatter,
+        name: String = "trace ${data.size}",
         mode: TraceMode = TraceMode.lines,
-        marker: Marker = Marker()
+        marker: Marker = Marker(),
+        lineType: LineType = LineType()
     ) {
-        data.add(Trace(points.map { it.x }, points.map { it.y }, name, mode, type, marker))
+        data.add(Trace(points.map { it.x }, points.map { it.y },points.map { it.text },  name, mode, TraceType.scatter, marker, lineType))
     }
 
+    /**
+     * @param title Text that will be displayed above the plot
+     * @param xAxis customizes the x [Axis]
+     * @param yAxis customizes the y [Axis]
+     */
     fun layout(title: String = "Untitled models", xAxis: Axis, yAxis: Axis) {
         layout = Layout(title, xAxis, yAxis)
     }
