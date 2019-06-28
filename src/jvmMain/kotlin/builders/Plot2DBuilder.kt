@@ -2,7 +2,7 @@ package builders
 
 import models.*
 
-class Plot2DBuilder(private val responsive: Boolean, private val showSendToCloud: Boolean) : Builder<Plot2D>() {
+class Plot2DBuilder(private val config: PlotConfig) : Builder<Plot2D>() {
 
     //TODO: use @paramof or dataarg when it's a thing
 
@@ -43,6 +43,6 @@ class Plot2DBuilder(private val responsive: Boolean, private val showSendToCloud
         layout = Layout(title, xAxis, yAxis)
     }
 
-    override fun build() = Plot2D(data, layout, PlotConfig(responsive, showSendToCloud))
+    override fun build() = Plot2D(data, layout, config)
 
 }

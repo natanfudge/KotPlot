@@ -1,17 +1,11 @@
 package base
 
-import builders.kotPlot
+import builders.KotPlot
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
 
-actual class Sample {
-    actual fun checkMe() = 42
-}
 
-actual object Platform {
-    actual val name: String = "JVM"
-}
 
 
 fun main() {
@@ -26,7 +20,7 @@ fun main() {
     }
 
 
-    val plot = kotPlot(showSendToCloud = false) {
+    val plot = KotPlot.plot (PlotConfig(showSendToCloud = false)) {
         scatterTrace(points = pointsList[0], name = "HorizontalThenVertical") {
             lines(shape = Shape.HorizontalThenVertical)
         }
@@ -42,8 +36,8 @@ fun main() {
         scatterTrace(points = pointsList[4], name = "Linear") {
             lines(shape = Shape.Linear)
         }
-        scatterTrace(points = pointsList[5], name = "Curved") {
-            lines(shape = Shape.Curved)
+        scatterTrace(points = pointsList[5], name = "Spline") {
+            lines(shape = Shape.Spline)
         }
     }
 

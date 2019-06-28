@@ -1,19 +1,25 @@
 package testPlots
 
 
-import builders.kotPlot
 import base.makeFile
+import builders.KotPlot
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
 
 fun main() {
     val pointsList = List(20) { i ->
-        listOf(Point(i * 5, i * 5), Point(i * 5 + 1, i * 5 + 1), Point(i * 5 + 2, i * 5 + 2))
+        listOf(
+            Point(i * 5, i * 5),
+            Point(i * 5 + 1, i * 5 - 0.1),
+            Point(i * 5 + 2, i * 5 + 2),
+            Point(i * 5 + 3, i * 5 + 4),
+            Point(i * 5 + 4, i * 5 + 1)
+        )
     }
 
 
-    val plot = kotPlot(showSendToCloud = false) {
+    val plot = KotPlot.plot  {
         scatterTrace(points = pointsList[0], name = "Circle") {
             markers(symbol = Symbol.Circle, size = 10)
         }

@@ -1,45 +1,125 @@
 package testPlots
 
 
-import builders.kotPlot
 import base.makeFile
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
+import base.toHtml
+import builders.KotPlot
 import models.*
 
 fun main() {
-    val pointsList = List(20) { i ->
-        listOf(Point(i * 5, i * 5), Point(i * 5 + 1, i * 5 + 1), Point(i * 5 + 2, i * 5 + 2))
+    val pointsList = List(2) { i ->
+        listOf(
+            Point(i * 5, i * 5, "Point1"),
+            Point(i * 5 + 1, i * 5 - 0.1),
+            Point(i * 5 + 2, i * 5 + 2),
+            Point(i * 5 + 3, i * 5 + 4),
+            Point(i * 5 + 4, i * 5 + 1),
+            Point(i * 5 + 4.5, i * 5 + 1)
+
+        )
+    }
+    val plot = KotPlot.plotGrid {
+        plotCell(rowNumber = 1) {
+            layout(title = "Default")
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+
+        plotCell(rowNumber = 1) {
+            layout(
+                title = "AxisType.Category",
+                xAxis = Axis(title = "X values", type = AxisType.Category)
+            )
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+        plotCell(rowNumber = 2) {
+            layout(
+                title = "AxisType.Date",
+                xAxis = Axis(title = "X values", type = AxisType.Date)
+            )
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+        plotCell(rowNumber = 2) {
+            layout(
+                title = "AxisType.Linear",
+                xAxis = Axis(title = "X values", type = AxisType.Linear)
+            )
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+        plotCell(rowNumber = 3) {
+            layout(
+                title = "AxisType.Log",
+                xAxis = Axis(title = "X values", type = AxisType.Log)
+            )
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+
+        plotCell(rowNumber = 3) {
+            layout(
+                title = "AxisType.MultiCategory",
+                xAxis = Axis(title = "X values", type = AxisType.MultiCategory)
+            )
+            scatterTrace(points = pointsList[0], name = "Test")
+            scatterTrace(points = pointsList[1], name = "Test2")
+        }
+
     }
 
-
-    val plot = kotPlot(showSendToCloud = false) {
-        scatterTrace(points = pointsList[0], name = "HorizontalThenVertical") {
-            layout(title = "Muh plot")
-        }
-        scatterTrace(points = pointsList[1], name = "VerticalThenHorizontal") {
-            lines(shape = Shape.VerticalThenHorizontal)
-        }
-        scatterTrace(points = pointsList[2], name = "HorizontalThenVerticalThenHorizontal") {
-            lines(shape = Shape.HorizontalThenVerticalThenHorizontal)
-        }
-        scatterTrace(points = pointsList[3], name = "VerticalThenHorizontalThenVertical") {
-            lines(shape = Shape.VerticalThenHorizontalThenVertical)
-        }
-        scatterTrace(points = pointsList[4], name = "Linear") {
-            lines(shape = Shape.Linear)
-        }
-        scatterTrace(points = pointsList[5], name = "Curved") {
-            lines(shape = Shape.Curved)
-        }
+//    val plot = KotPlot.plotGrid {
+    KotPlot.plot {
+        layout(
+            title = "Plot 1",
+            xAxis = Axis(title = "X values"),
+            yAxis = Axis(title = "Y values")
+        )
+        scatterTrace(points = pointsList[0], name = "Test")
+        scatterTrace(points = pointsList[1], name = "Test2")
     }
+//    }
 
-    val json = Json(JsonConfiguration.Stable)
-    val str = json.stringify(Plot2D.serializer(), plot)
-    println(str)
+    val html  = plot.toHtml()
+//    print(html)
+//    val plot1 = KotPlot.
+//    val plot2 = kotPlot {
+//        layout(
+//            title = "Plot 2",
+//            xAxis = Axis(title = "X values"),
+//            yAxis = Axis(title = "Y values")
+//        )
+//        scatterTrace(points = pointsList[0], name = "Test")
+//        scatterTrace(points = pointsList[1], name = "Test2")
+//    }
+//    val plot3 = kotPlot {
+//        layout(
+//            title = "Plot 3",
+//            xAxis = Axis(title = "X values"),
+//            yAxis = Axis(title = "Y values")
+//        )
+//        scatterTrace(points = pointsList[0], name = "Test")
+//        scatterTrace(points = pointsList[1], name = "Test2")
+//    }
+//    val plot4 = kotPlot {
+//        layout(
+//            title = "Plot 4",
+//            xAxis = Axis(title = "X values"),
+//            yAxis = Axis(title = "Y values")
+//        )
+//        scatterTrace(points = pointsList[0], name = "Test")
+//        scatterTrace(points = pointsList[1], name = "Test2")
+//    }
 
+//    val json = Json(JsonConfiguration.Stable)
+//    val str = json.stringify(Plot2D.serializer(), plot)
+//    println(str)
 
     plot.makeFile()
+//    plot2.makeFile()
+//    plot3.makeFile()
+//    plot4.makeFile()
 }
 
 

@@ -37,7 +37,7 @@ enum class Shape {
     /**
      * The line will go towards the next point in a curved way.
      */
-    Curved,
+    Spline,
     /**
      * The line will be a straight line between two points.
      */
