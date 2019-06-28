@@ -7,7 +7,7 @@ import org.junit.Test
 import temp.InlineSerializer
 import kotlin.test.assertEquals
 
-class SerializationTests {
+class InlineSerializationTests {
 
     val json = Json(JsonConfiguration.Stable)
 

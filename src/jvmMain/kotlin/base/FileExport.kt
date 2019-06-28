@@ -118,7 +118,7 @@ fun PlotGrid.toHtml(): String {
 
 internal fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
     row.second.mapIndexed { idx, cell ->
-        if (cell.size != 0) {
+        if (cell.size != null) {
             div("col col-${cell.size}") {
                 id = "${row.first}-$idx"
             }
