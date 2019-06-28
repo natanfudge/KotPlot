@@ -1,8 +1,10 @@
 package testPlots
 
 
-import base.makeFile
+import makeFile
 import builders.KotPlot
+import builders.Symbol
+import constructables.Point
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
@@ -51,7 +53,7 @@ fun main() {
     }
 
     val json = Json(JsonConfiguration.Stable)
-    val str = json.stringify(Plot2D.serializer(), plot)
+    val str = json.stringify(Plot.serializer(), plot)
     println(str)
 
 

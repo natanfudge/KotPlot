@@ -18,7 +18,7 @@ import kotlin.reflect.full.memberProperties
  *  ```
  * It will become just `"thevalue"`
  */
-open class InlineSerializer<T : Any>(private val kClass: KClass<T>) : KSerializer<T> {
+internal open class InlineSerializer<T : Any>(private val kClass: KClass<T>) : KSerializer<T> {
     override val descriptor: SerialDescriptor = StringDescriptor
 
     override fun serialize(encoder: Encoder, obj: T) {

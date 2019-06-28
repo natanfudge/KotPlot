@@ -1,15 +1,19 @@
-package base
-
+import constructables.PlotConfig
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
-import kotlinx.serialization.list
 import models.*
+import models.internal.Layout
 import java.awt.Desktop
 import java.io.File
+import models.internal.Trace
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonConfiguration
+import models.internal.PlotCell
 
-fun Plot2D.toJs(id : String): String {
+/**
+ * Returns the javascript plotly function to create this plot as a string.
+ */
+fun Plot.toJs(id : String): String {
     val json = Json(JsonConfiguration.Stable.copy(prettyPrint = true))
     val tracesParsed = json.stringify(Trace.serializer().list, data)
     val layoutParsed = if (layout != null) json.stringify(Layout.serializer(), layout) else null
@@ -26,9 +30,9 @@ fun Plot2D.toJs(id : String): String {
 }
 
 /**
- * Create a html string from plot. The ID of the plot is 'plot'.
+ * Create a full html file string from the plot. The ID of the plot is 'plot'.
  */
-fun Plot2D.toHtml(): String = createHTML().html {
+fun Plot.toHtml(): String = createHTML().html {
     head {
         meta(charset = "utf-8") {
             script(src = "https://cdn.plot.ly/plotly-latest.min.js") {}
@@ -55,7 +59,7 @@ fun Plot2D.toHtml(): String = createHTML().html {
  * @param file the reference to html file. If null, create a temporary file
  * @param show if true, start the browser after file is created
  */
-fun Plot2D.makeFile(file: File? = null, show: Boolean = true) {
+fun Plot.makeFile(file: File? = null, show: Boolean = true) {
     val actualFile = file ?: File.createTempFile("tempPlot", ".html")
     actualFile.writeText(this.toHtml())
     if (show) {
@@ -76,13 +80,12 @@ fun PlotGrid.makeFile(file: File? = null, show: Boolean = true) {
     }
 }
 
-//TODO: Improve seperating of default cell configuration
 /**
- * Create a html string for page
+ * Create a full html file string from the plot grid. The ID of the plot is 'plot'.
  */
 fun PlotGrid.toHtml(): String {
     val rows = cells.groupBy { it.rowNumber }.mapValues {
-        it.value.sortedBy { plot -> plot.colOrderNumber }
+        it.value.sortedBy { plot -> plot.column }
     }.toList().sortedBy { it.first }
 
 
@@ -116,7 +119,7 @@ fun PlotGrid.toHtml(): String {
     }
 }
 
-internal fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
+private fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
     row.second.mapIndexed { idx, cell ->
         if (cell.size != null) {
             div("col col-${cell.size}") {
@@ -130,7 +133,7 @@ internal fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
     }
 }
 
-internal fun FlowContent.plotGrid(rows: List<Pair<Int, List<PlotCell>>>) = div("container") {
+private fun FlowContent.plotGrid(rows: List<Pair<Int, List<PlotCell>>>) = div("container") {
     rows.forEach {
         plotRow((it))
     }

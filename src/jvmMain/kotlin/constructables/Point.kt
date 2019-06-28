@@ -1,4 +1,4 @@
-package models
+package constructables
 
 /**
  * A two-dimensional point with [x] and [y] coordinates

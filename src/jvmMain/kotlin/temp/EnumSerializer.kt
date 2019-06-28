@@ -4,9 +4,8 @@ import kotlinx.serialization.*
 import kotlinx.serialization.internal.StringDescriptor
 import kotlin.reflect.KClass
 
-fun <E : Enum<E>> EnumShit(kClass: KClass<E>): KSerializer<E> = EnumSerialNameSerializer(kClass)
 
-open class EnumSerialNameSerializer<E : Enum<E>>(
+internal open class EnumSerialNameSerializer<E : Enum<E>>(
     private val kClass: KClass<E>
 ) : KSerializer<E> {
     override val descriptor: SerialDescriptor = StringDescriptor
@@ -26,6 +25,6 @@ open class EnumSerialNameSerializer<E : Enum<E>>(
         }
 }
 
-inline fun <reified A : Annotation> Enum<*>.getEnumFieldAnnotation(): A? =
+private inline fun <reified A : Annotation> Enum<*>.getEnumFieldAnnotation(): A? =
     javaClass.getDeclaredField(name).getAnnotation(A::class.java)
 

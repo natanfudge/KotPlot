@@ -3,7 +3,6 @@ package testPlots
 
 import makeFile
 import builders.KotPlot
-import constructables.PlotConfig
 import constructables.Point
 
 fun main() {
@@ -20,34 +19,25 @@ fun main() {
     }
     val plot = KotPlot.plotGrid(title = "Colors") {
 
-
-        plotCell(row = 1) {
+        plotCell {
             layout(
-                title = "Default (responsive = true)"
+                title = "Default (column = Int.MAX_VALUE)"
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
 
-        plotCell(config = PlotConfig(responsive = false), row = 2) {
+        plotCell(column = 2) {
             layout(
-                title = "responsive = false"
+                title = "column = 2"
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
 
-        plotCell(row = 3) {
+        plotCell(column = 1) {
             layout(
-                title = "Default (showSendToCloud = true)"
-            )
-            scatterTrace(points = pointsList[0], name = "Trace1")
-            scatterTrace(points = pointsList[1], name = "Trace2")
-        }
-
-        plotCell(config = PlotConfig(showSendToCloud = false), row =3) {
-            layout(
-                title = "showSendToCloud = false"
+                title = "column = 1"
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")

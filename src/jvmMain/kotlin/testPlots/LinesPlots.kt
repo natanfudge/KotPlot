@@ -1,11 +1,13 @@
 package testPlots
 
 
-import base.makeFile
+import makeFile
 import builders.KotPlot
+import constructables.Point
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
+import builders.Shape
 
 fun main() {
     val pointsList = List(20) { i ->
@@ -41,7 +43,7 @@ fun main() {
     }
 
     val json = Json(JsonConfiguration.Stable)
-    val str = json.stringify(Plot2D.serializer(), plot)
+    val str = json.stringify(Plot.serializer(), plot)
     println(str)
 
 

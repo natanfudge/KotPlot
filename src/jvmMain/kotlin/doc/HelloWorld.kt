@@ -1,9 +1,10 @@
 package doc
 
-import base.makeFile
+import makeFile
 import builders.KotPlot
-import models.Point
+import constructables.Point
 
+//TODO: convert to multiplatform
 fun main() {
     val points = listOf(Point(0, 0), Point(1, 1), Point(2, 2))
 

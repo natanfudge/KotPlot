@@ -1,10 +1,9 @@
-package models
+package constructables
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import temp.AxisTypeSerializer
 
-//TODO: figure out the proper default for null values
 
 
 @Serializable
@@ -13,8 +12,6 @@ data class Axis internal constructor(
     val title: String,
     val type: AxisType,
     val visible: Boolean,
-    //TODO see if null is good enough to make it autorange
-//    val autoRange: Boolean,
     val range: List<Double>?
 ) {
     /**

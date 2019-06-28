@@ -1,9 +1,11 @@
 package testPlots
 
 
-import base.makeFile
+import makeFile
 import builders.KotPlot
-import models.*
+import constructables.Axis
+import constructables.AxisType
+import constructables.Point
 
 fun main() {
     val pointsList = List(2) { i ->

@@ -4,6 +4,6 @@ package builders
 annotation class BuilderMarker
 
 @BuilderMarker
-abstract class Builder<T> {
-    internal abstract fun build(): T
+abstract class Builder/*<T> */{
+//    internal abstract fun build(): T
 }

@@ -1,8 +1,13 @@
 package builders
 
+import constructables.Axis
+import constructables.PlotConfig
+import constructables.Point
 import models.*
+import models.internal.Layout
+import models.internal.Trace
 
-class Plot2DBuilder(private val config: PlotConfig) : Builder<Plot2D>() {
+class Plot2DBuilder(private val config: PlotConfig) : Builder() {
 
     //TODO: use @paramof or dataarg when it's a thing
 
@@ -43,6 +48,6 @@ class Plot2DBuilder(private val config: PlotConfig) : Builder<Plot2D>() {
         layout = Layout(title, xAxis, yAxis)
     }
 
-    override fun build() = Plot2D(data, layout, config)
+    internal fun build() = Plot(data, layout, config)
 
 }
