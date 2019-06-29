@@ -1,14 +1,15 @@
+@file:Suppress("UnusedImport")
+
 import constructables.PlotConfig
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
 import models.*
 import models.internal.Layout
-import java.awt.Desktop
-import java.io.File
 import models.internal.Trace
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.internal.PlotCell
+import kotlinx.serialization.*
 
 /**
  * Returns the javascript plotly function to create this plot as a string.
@@ -54,31 +55,7 @@ fun Plot.toHtml(): String = createHTML().html {
 }
 
 
-/**
- * Create a standalone html with the page
- * @param file the reference to html file. If null, create a temporary file
- * @param show if true, start the browser after file is created
- */
-fun Plot.makeFile(file: File? = null, show: Boolean = true) {
-    val actualFile = file ?: File.createTempFile("tempPlot", ".html")
-    actualFile.writeText(this.toHtml())
-    if (show) {
-        Desktop.getDesktop().browse(actualFile.toURI())
-    }
-}
 
-/**
- * Create a standalone html with the page
- * @param file the reference to html file. If null, create a temporary file
- * @param show if true, start the browser after file is created
- */
-fun PlotGrid.makeFile(file: File? = null, show: Boolean = true) {
-    val actualFile = file ?: File.createTempFile("tempPlot", ".html")
-    actualFile.writeText(this.toHtml())
-    if (show) {
-        Desktop.getDesktop().browse(actualFile.toURI())
-    }
-}
 
 /**
  * Create a full html file string from the plot grid. The ID of the plot is 'plot'.

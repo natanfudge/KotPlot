@@ -2,6 +2,7 @@ package models.internal
 
 import builders.Symbol
 import kotlinx.serialization.*
+import kotlinx.serialization.internal.CommonEnumSerializer
 import temp.*
 
 
@@ -19,38 +20,32 @@ internal data class Trace(
 )
 
 
+
+
 @Serializable(TraceModeSerializer::class)
-internal enum class TraceMode {
+internal enum class TraceMode(override val serialName: String?)  : SerialEnum{
 
     /**
      * Lines will connect between the points.
      */
-    @SerialName("lines")
-    Lines,
+    Lines("lines"),
     /**
      * Markers will appear at the points' location.
      */
-    @SerialName("markers")
-    Markers,
-    @SerialName("markers+lines")
-    LinesAndMarkers,
-    @SerialName("none")
-    None
+    Markers("markers"),
+    LinesAndMarkers("markers+lines"),
+    None("none")
 
 
 }
-
 
 
 @Serializable(TraceTypeSerializer::class)
-internal enum class TraceType {
-    @SerialName("scatter")
-    Scatter
+internal enum class TraceType(override val serialName: String?)  : SerialEnum{
+    Scatter("scatter")
 }
 
 @Serializable
-internal data class Marker (val symbol: Symbol, val size: Int)
-
-
+internal data class Marker(val symbol: Symbol, val size: Int)
 
 

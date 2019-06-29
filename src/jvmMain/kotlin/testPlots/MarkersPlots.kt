@@ -1,10 +1,10 @@
 package testPlots
 
 
-import makeFile
 import builders.KotPlot
 import builders.Symbol
 import constructables.Point
+import jvmExtensions.show
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
@@ -41,7 +41,7 @@ fun main() {
             markers(symbol = Symbol.TriangleUp, size = 10)
         }
 
-        scatterTrace(points = pointsList[6], name = "No Markers") {
+        scatterTrace(points = pointsList[6], name = "show = false") {
             markers(show = false)
         }
 
@@ -57,7 +57,7 @@ fun main() {
     println(str)
 
 
-    plot.makeFile()
+    plot.show()
 }
 
 

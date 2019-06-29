@@ -3,7 +3,7 @@ package constructables
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import temp.AxisTypeSerializer
-
+import temp.SerialEnum
 
 
 @Serializable
@@ -37,34 +37,29 @@ data class Axis internal constructor(
 
 
 @Serializable(AxisTypeSerializer::class)
-enum class AxisType {
+enum class AxisType(override val serialName: String?) : SerialEnum{
     /**
      * Points on the axis will be distributed evenly on the range.
      */
-    @SerialName("linear")
-    Linear,
+    Linear("linear"),
     /**
      * Values will be interpreted as their natural log (ln). Useful for large numbers.
      */
-    @SerialName("log")
-    Log,
+    Log("log"),
 
     /**
      * Values will be interpreted as dates.
      */
-    @SerialName("date")
-    Date,
+    Date("date"),
 
     /**
      * Each possible value will be represnted on the axis
      */
-    @SerialName("category")
-    Category,
+    Category("category"),
 
     /**
      * Purpose unclear. If you know the purpose of this please make an issue.
      */
-    @SerialName("multicategory")
-    MultiCategory;
+    MultiCategory("multicategory");
 }
 

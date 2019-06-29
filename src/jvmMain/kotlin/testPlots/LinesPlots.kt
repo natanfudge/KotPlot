@@ -1,16 +1,16 @@
 package testPlots
 
 
-import makeFile
 import builders.KotPlot
 import constructables.Point
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import models.*
 import builders.Shape
+import jvmExtensions.show
 
 fun main() {
-    val pointsList = List(20) { i ->
+    val pointsList = List(7) { i ->
         listOf(
             Point(i * 5, i * 5),
             Point(i * 5 + 1, i * 5 - 0.1),
@@ -21,7 +21,7 @@ fun main() {
     }
 
 
-    val plot = KotPlot.plot  {
+    val plot = KotPlot.plot {
         scatterTrace(points = pointsList[0], name = "HorizontalThenVertical") {
             lines(shape = Shape.HorizontalThenVertical)
         }
@@ -34,11 +34,14 @@ fun main() {
         scatterTrace(points = pointsList[3], name = "VerticalThenHorizontalThenVertical") {
             lines(shape = Shape.VerticalThenHorizontalThenVertical)
         }
-        scatterTrace(points = pointsList[4], name = "Linear") {
+        scatterTrace(points = pointsList[4], name = "Default (Linear)") {
             lines(shape = Shape.Linear)
         }
         scatterTrace(points = pointsList[5], name = "Spline") {
             lines(shape = Shape.Spline)
+        }
+        scatterTrace(points = pointsList[6], name = "show = false") {
+            lines(show = false)
         }
     }
 
@@ -47,7 +50,7 @@ fun main() {
     println(str)
 
 
-    plot.makeFile()
+    plot.show()
 }
 
 

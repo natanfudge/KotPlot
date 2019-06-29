@@ -1,12 +1,12 @@
 package testPlots
 
 
-import makeFile
 import toHtml
 import builders.KotPlot
 import constructables.Axis
 import constructables.Color
 import constructables.Point
+import jvmExtensions.show
 import kotlinx.serialization.Serializable
 
 fun main() {
@@ -79,7 +79,7 @@ fun main() {
 
     print(plot.toHtml())
 
-    plot.makeFile()
+    plot.show()
 //
 //    val w = Wrapper(Pair(0.2,0.3))
 //    print(stringify(Wrapper.serializer(),w))

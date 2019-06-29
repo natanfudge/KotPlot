@@ -1,8 +1,9 @@
 package doc
 
-import makeFile
 import builders.KotPlot
 import constructables.Point
+import jvmExtensions.show
+
 
 //TODO: convert to multiplatform
 fun main() {
@@ -12,5 +13,5 @@ fun main() {
         scatterTrace(points)
     }
 
-    plot.makeFile()
+    plot.show()
 }

@@ -1,11 +1,11 @@
 package testPlots
 
 
-import makeFile
 import builders.KotPlot
 import constructables.Axis
 import constructables.AxisType
 import constructables.Point
+import jvmExtensions.show
 
 fun main() {
     val pointsList = List(2) { i ->
@@ -70,7 +70,7 @@ fun main() {
 
     }
 
-    plot.makeFile()
+    plot.show()
 }
 
 

@@ -1,12 +1,12 @@
 package testPlots
 
 
-import makeFile
 import toHtml
 import builders.KotPlot
 import constructables.Axis
 import constructables.Color
 import constructables.Point
+import jvmExtensions.show
 
 fun main() {
     val pointsList = List(2) { i ->
@@ -71,9 +71,7 @@ fun main() {
 
     }
 
-    print(plot.toHtml())
-
-    plot.makeFile()
+    plot.show()
 }
 
 

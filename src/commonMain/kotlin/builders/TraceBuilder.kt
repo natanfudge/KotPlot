@@ -1,13 +1,12 @@
 package builders
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import models.internal.*
 import models.internal.LineType
 import models.internal.Marker
 import models.internal.Trace
 import models.internal.TraceMode
-import temp.ShapeDeserializer
+import temp.SerialEnum
+import temp.ShapeSerializer
 import temp.SymbolSerializer
 
 class TraceBuilder(
@@ -59,52 +58,41 @@ class TraceBuilder(
 }
 
 @Serializable(SymbolSerializer::class)
-enum class Symbol {
-    @SerialName("circle")
-    Circle,
-    @SerialName("triangle-up")
-    TriangleUp,
-    @SerialName("triangle-down")
-    TriangleDown,
-    @SerialName("square-cross")
-    SquareCross,
-    @SerialName("cross-thin")
-    ThinCross,
-    @SerialName("cross")
-    Cross
+enum class Symbol(override val serialName: String?) : SerialEnum{
+    Circle("circle"),
+    TriangleUp("triangle-up"),
+    TriangleDown("triangle-down"),
+    SquareCross("square-cross"),
+    ThinCross("cross-thin"),
+    Cross("cross")
 }
 
-@Serializable(ShapeDeserializer::class)
-enum class Shape {
+@Serializable(ShapeSerializer::class)
+enum class Shape(override val serialName: String?) : SerialEnum{
     /**
      * The line will go horizontally towards the next point and then vertically towards it in a straight line.
      */
-    @SerialName("hv")
-    HorizontalThenVertical,
-    @SerialName("vh")
+    HorizontalThenVertical("hv"),
     /**
      * The line will go vertically towards the next point and then horizontally towards it in a straight line.
      */
-    VerticalThenHorizontal,
-    @SerialName("hvh")
+    VerticalThenHorizontal("vh"),
     /**
      * The line will go half way horizontally towards the next point, and then vertically all the way towards it,
      * and then it will go the other half horizontally towards it in a straight line.
      */
-    HorizontalThenVerticalThenHorizontal,
-    @SerialName("vhv")
+    HorizontalThenVerticalThenHorizontal("hvh"),
     /**
      * The line will go half way vertically towards the next point, and then horizontally all the way towards it,
      * and then it will go the other half vertically towards it in a straight line.
      */
-    VerticalThenHorizontalThenVertical,
-    @SerialName("spline")
+    VerticalThenHorizontalThenVertical("vhv"),
     /**
      * The line will go towards the next point in a curved way.
      */
-    Spline,
+    Spline("spline"),
     /**
      * The line will be a straight line between two points.
      */
-    Linear
+    Linear("linear")
 }
