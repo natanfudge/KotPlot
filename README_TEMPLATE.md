@@ -32,7 +32,7 @@ dependencies {
 }
 ```
 
-# How do I use this?
+# How do I use it?
 First create a plot:
 ```
 val points = listOf(Point(0, 0), Point(1, 1), Point(2, 2))
