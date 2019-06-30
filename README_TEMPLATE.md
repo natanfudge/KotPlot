@@ -1,5 +1,5 @@
 # What is this?
-A type-safe kotlin library to display plots in a browser. It uses [Plotly.js](https://plot.ly/javascript/) internally. 
+A type-safe Kotlin library to display plots in a browser. It uses [Plotly.js](https://plot.ly/javascript/) internally. 
 It is currently very early in development, but usable. 
 # How do I add it to my project?
 In `build.gradle`, add this:
