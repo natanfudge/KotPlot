@@ -14,7 +14,7 @@ class TraceBuilder(
     private val y: List<Double>,
     private val text: List<String?>,
     private val name: String
-)  : Builder(){
+) : Builder() {
     private lateinit var marker: Marker
     private lateinit var lineType: LineType
     private var showMarkers: Boolean = true
@@ -58,7 +58,7 @@ class TraceBuilder(
 }
 
 @Serializable(SymbolSerializer::class)
-enum class Symbol(override val serialName: String?) : SerialEnum{
+enum class Symbol(override val serialName: String?) : SerialEnum {
     Circle("circle"),
     TriangleUp("triangle-up"),
     TriangleDown("triangle-down"),
@@ -68,7 +68,7 @@ enum class Symbol(override val serialName: String?) : SerialEnum{
 }
 
 @Serializable(ShapeSerializer::class)
-enum class Shape(override val serialName: String?) : SerialEnum{
+enum class Shape(override val serialName: String?) : SerialEnum {
     /**
      * The line will go horizontally towards the next point and then vertically towards it in a straight line.
      */
