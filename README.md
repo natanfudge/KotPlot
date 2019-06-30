@@ -14,21 +14,21 @@ On the JVM add:
 ```
 dependencies {
     //...
-    implementation "com.fudge:kotplot-jvm:0.1"
+    implementation "com.fudge:kotplot-jvm:0.2"
 }
 ```
 In Javascript:
 ```
 dependencies {
     //...
-    implementation "com.fudge:kotplot-js:0.1"
+    implementation "com.fudge:kotplot-js:0.2"
 }
 ```
 On the common part of a multiplatform project:
 ```
 dependencies {
     //...
-    implementation "com.fudge:kotplot:0.1"
+    implementation "com.fudge:kotplot:0.2"
 }
 ```
 
