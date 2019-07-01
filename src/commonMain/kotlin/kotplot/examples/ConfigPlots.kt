@@ -1,12 +1,12 @@
-package testPlots
+package kotplot.examples
 
 
 import kotplot.builders.KotPlot
 import kotplot.constructables.PlotConfig
 import kotplot.constructables.Point
-import kotplot.jvmExtensions.show
+import kotplot.models.PlotGrid
 
-fun main() {
+internal fun Examples.configPlots() : PlotGrid {
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),
@@ -18,7 +18,7 @@ fun main() {
 
         )
     }
-    val plot = KotPlot.plotGrid(title = "Colors") {
+    return KotPlot.plotGrid(title = "Colors") {
 
 
         plotCell(row = 1) {
@@ -57,6 +57,5 @@ fun main() {
     }
 
 
-    plot.show()
 }
 

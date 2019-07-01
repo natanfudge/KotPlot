@@ -1,13 +1,15 @@
-package testPlots
+package kotplot.examples
 
 
 import kotplot.builders.KotPlot
 import kotplot.constructables.Axis
-import kotplot.constructables.Color
+import kotplot.constructables.AxisType
 import kotplot.constructables.Point
-import kotplot.jvmExtensions.show
+import kotplot.models.PlotGrid
+object Examples{
 
-fun main() {
+}
+internal fun Examples.axisTypePlots()  : PlotGrid{
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),
@@ -19,58 +21,60 @@ fun main() {
 
         )
     }
-    val plot = KotPlot.plotGrid(title = "Colors") {
+    return KotPlot.plotGrid {
         plotCell(row = 1) {
-            layout(title = "Default  (Black)")
+            layout(title = "Default (Linear)")
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
 
         plotCell(row = 1) {
             layout(
-                title = "Black",
-                xAxis = Axis(title = "X values", color = Color.Black)
+                title = "Category",
+                xAxis = Axis(title = "X values", type = AxisType.Category)
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
         plotCell(row = 2) {
             layout(
-                title = "Red",
-                xAxis = Axis(title = "X values", color = Color.Red)
+                title = "Date",
+                xAxis = Axis(title = "X values", type = AxisType.Date)
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
         plotCell(row = 2) {
             layout(
-                title = "Green",
-                yAxis = Axis(title = "Y values", color = Color.Green)
+                title = "Linear",
+                xAxis = Axis(title = "X values", type = AxisType.Linear)
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
         plotCell(row = 3) {
             layout(
-                title = "Blue",
-                yAxis = Axis(title = "Y values", color = Color.Blue)
-            )
-            scatterTrace(points = pointsList[0], name = "Trace1")
-            scatterTrace(points = pointsList[1], name = "Trace2")
-        }
-        plotCell(row = 3) {
-            layout(
-                title = "Orange",
-                yAxis = Axis(title = "Y values", color = Color.Orange)
+                title = "Log",
+                xAxis = Axis(title = "X values", type = AxisType.Log)
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
         }
 
+        plotCell(row = 3) {
+            layout(
+                title = "MultiCategory",
+                xAxis = Axis(
+                    title = "X values",
+                    type = AxisType.MultiCategory
+                )
+            )
+            scatterTrace(points = pointsList[0], name = "Trace1")
+            scatterTrace(points = pointsList[1], name = "Trace2")
+        }
 
     }
 
-    plot.show()
 }
 
 

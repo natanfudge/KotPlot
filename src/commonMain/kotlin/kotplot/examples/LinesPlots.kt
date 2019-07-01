@@ -1,4 +1,4 @@
-package testPlots
+package kotplot.examples
 
 
 import kotplot.builders.KotPlot
@@ -6,10 +6,9 @@ import kotplot.constructables.Point
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotplot.builders.Shape
-import kotplot.jvmExtensions.show
 import kotplot.models.Plot
 
-fun main() {
+internal fun Examples.linesPlots()  : Plot{
     val pointsList = List(7) { i ->
         listOf(
             Point(i * 5, i * 5),
@@ -21,7 +20,7 @@ fun main() {
     }
 
 
-    val plot = KotPlot.plot {
+    return KotPlot.plot {
         scatterTrace(points = pointsList[0], name = "HorizontalThenVertical") {
             lines(shape = Shape.HorizontalThenVertical)
         }
@@ -44,13 +43,6 @@ fun main() {
             lines(show = false)
         }
     }
-
-    val json = Json(JsonConfiguration.Stable)
-    val str = json.stringify(Plot.serializer(), plot)
-    println(str)
-
-
-    plot.show()
 }
 
 

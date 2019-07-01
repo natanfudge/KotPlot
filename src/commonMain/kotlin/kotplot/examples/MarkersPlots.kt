@@ -1,15 +1,14 @@
-package testPlots
+package kotplot.examples
 
 
 import kotplot.builders.KotPlot
 import kotplot.builders.Symbol
 import kotplot.constructables.Point
-import kotplot.jvmExtensions.show
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import kotplot.models.Plot
 
-fun main() {
+internal fun Examples.markersPlots()  : Plot{
     val pointsList = List(20) { i ->
         listOf(
             Point(i * 5, i * 5),
@@ -21,7 +20,7 @@ fun main() {
     }
 
 
-    val plot = KotPlot.plot  {
+    return KotPlot.plot  {
         scatterTrace(points = pointsList[0], name = "Circle") {
             markers(symbol = Symbol.Circle, size = 10)
         }
@@ -52,12 +51,7 @@ fun main() {
 
     }
 
-    val json = Json(JsonConfiguration.Stable)
-    val str = json.stringify(Plot.serializer(), plot)
-    println(str)
 
-
-    plot.show()
 }
 
 

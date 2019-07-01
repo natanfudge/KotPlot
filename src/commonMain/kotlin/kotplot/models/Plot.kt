@@ -8,7 +8,7 @@ import kotplot.models.internal.Trace
 @Serializable
 data class Plot internal constructor(
     internal val data: List<Trace> = listOf(),
-    internal val layout: Layout?,
+    internal val layout: Layout,
     val config: PlotConfig
 )
 

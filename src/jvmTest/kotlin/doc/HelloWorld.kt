@@ -3,7 +3,6 @@ package doc
 import kotplot.builders.KotPlot
 import kotplot.constructables.Point
 import kotplot.jvmExtensions.show
-import kotplot.toHtml
 
 //TODO: change README to html so I can have tabs for jvm/js/native, and kotlin-dsl/groovy-dsl
 fun main() {
@@ -17,7 +16,6 @@ fun main() {
         scatterTrace(points)
     }
 
-    print(plot.toHtml())
 
     plot.show()
 }

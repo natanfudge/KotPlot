@@ -97,6 +97,8 @@ kotlin {
                 implementation kotlin('stdlib-js')
                 implementation "org.jetbrains.kotlinx:kotlinx-html-js:${kotlinx_html_version}"
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$kotlinx_serialization_version"
+                implementation "org.webjars:bootstrap:4.3.1"
+                implementation 'org.webjars.bower:plotly.js:1.48.3'
             }
         }
         jsTest {

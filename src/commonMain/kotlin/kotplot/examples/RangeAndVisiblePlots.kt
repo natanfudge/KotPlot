@@ -1,4 +1,4 @@
-package testPlots
+package kotplot.examples
 
 
 import kotplot.toHtml
@@ -6,10 +6,10 @@ import kotplot.builders.KotPlot
 import kotplot.constructables.Axis
 import kotplot.constructables.Color
 import kotplot.constructables.Point
-import kotplot.jvmExtensions.show
 import kotlinx.serialization.Serializable
+import kotplot.models.PlotGrid
 
-fun main() {
+fun Examples.rangeAndVisiblePlots()  : PlotGrid{
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),
@@ -21,7 +21,7 @@ fun main() {
 
         )
     }
-    val plot = KotPlot.plotGrid(title = "Colors") {
+    return KotPlot.plotGrid(title = "Colors") {
 
         plotCell(row = 1) {
             layout(
@@ -89,12 +89,6 @@ fun main() {
 
     }
 
-    print(plot.toHtml())
-
-    plot.show()
-//
-//    val w = Wrapper(Pair(0.2,0.3))
-//    print(stringify(Wrapper.serializer(),w))
 }
 
 @Serializable

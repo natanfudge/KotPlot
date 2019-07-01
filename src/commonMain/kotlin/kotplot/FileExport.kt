@@ -17,10 +17,10 @@ import kotlinx.serialization.*
 /**
  * Returns the javascript plotly function to create this plot as a string.
  */
-fun Plot.toJs(id : String): String {
+fun Plot.toJs(id: String): String {
     val json = Json(JsonConfiguration.Stable.copy(prettyPrint = true))
     val tracesParsed = json.stringify(Trace.serializer().list, data)
-    val layoutParsed = if (layout != null) json.stringify(Layout.serializer(), layout) else null
+    val layoutParsed = json.stringify(Layout.serializer(), layout)
     val configParsed = json.stringify(PlotConfig.serializer(), config)
 
     return """
@@ -45,7 +45,7 @@ fun Plot.toHtml(): String = createHTML().html {
                 href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             )
         }
-        if (layout != null) title(layout.title)
+        title(layout.title)
     }
     body {
         div { id = "plot" }
@@ -58,15 +58,10 @@ fun Plot.toHtml(): String = createHTML().html {
 }
 
 
-
-
 /**
  * Create a full html file string from the plot grid. The ID of the plot is 'plot'.
  */
 fun PlotGrid.toHtml(): String {
-    val rows = cells.groupBy { it.rowNumber }.mapValues {
-        it.value.sortedBy { plot -> plot.column }
-    }.toList().sortedBy { it.first }
 
 
     return createHTML().html {
@@ -85,24 +80,36 @@ fun PlotGrid.toHtml(): String {
             title(this@toHtml.title)
         }
         body {
-            plotGrid(rows)
-            rows.forEach { row ->
-                row.second.mapIndexed { idx, cell ->
-                    script {
-                        unsafe {
-                            +cell.plot.toJs("${row.first}-$idx")
-                        }
-                    }
-                }
-            }
+            gridScript(this@toHtml)
         }
     }
 }
 
-private fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
+internal fun PlotGrid.sortedRows() = cells.groupBy { it.rowNumber }.mapValues {
+        it.value.sortedBy { plot -> plot.column }
+    }.toList().sortedBy { it.first }
+
+internal fun FlowContent.gridScript(grid: PlotGrid) {
+    val rows = grid.sortedRows()
+    plotGrid(rows)
+    rows.forEach { row ->
+        row.second.mapIndexed { idx, cell ->
+            script {
+                unsafe {
+                    +cell.plot.toJs("${row.first}-$idx")
+                }
+            }
+        }
+    }
+
+}
+
+internal fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
     row.second.mapIndexed { idx, cell ->
+        val size = cell.size
         if (cell.size != null) {
-            div("col col-${cell.size}") {
+            //"col col-xs-$size col-sm-$size col-md-$size col-lg-$size"
+            div("col-sm-6") {
                 id = "${row.first}-$idx"
             }
         } else {
@@ -112,6 +119,7 @@ private fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
         }
     }
 }
+
 
 private fun FlowContent.plotGrid(rows: List<Pair<Int, List<PlotCell>>>) = div("container") {
     rows.forEach {
