@@ -1,6 +1,6 @@
-package models.internal
+package kotplot.models.internal
 
-import constructables.Axis
+import kotplot.constructables.Axis
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

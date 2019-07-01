@@ -1,11 +1,11 @@
 package testPlots
 
 
-import builders.KotPlot
-import constructables.Axis
-import constructables.AxisType
-import constructables.Point
-import jvmExtensions.show
+import kotplot.builders.KotPlot
+import kotplot.constructables.Axis
+import kotplot.constructables.AxisType
+import kotplot.constructables.Point
+import kotplot.jvmExtensions.show
 
 fun main() {
     val pointsList = List(2) { i ->
@@ -62,7 +62,10 @@ fun main() {
         plotCell(row = 3) {
             layout(
                 title = "MultiCategory",
-                xAxis = Axis(title = "X values", type = AxisType.MultiCategory)
+                xAxis = Axis(
+                    title = "X values",
+                    type = AxisType.MultiCategory
+                )
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")

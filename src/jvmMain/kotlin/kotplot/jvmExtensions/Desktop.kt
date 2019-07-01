@@ -1,8 +1,8 @@
-package jvmExtensions
+package kotplot.jvmExtensions
 
-import models.Plot
-import models.PlotGrid
-import toHtml
+import kotplot.models.Plot
+import kotplot.models.PlotGrid
+import kotplot.toHtml
 import java.awt.Desktop
 import java.io.File
 

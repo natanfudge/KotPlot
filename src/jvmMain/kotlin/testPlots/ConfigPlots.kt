@@ -1,10 +1,10 @@
 package testPlots
 
 
-import builders.KotPlot
-import constructables.PlotConfig
-import constructables.Point
-import jvmExtensions.show
+import kotplot.builders.KotPlot
+import kotplot.constructables.PlotConfig
+import kotplot.constructables.Point
+import kotplot.jvmExtensions.show
 
 fun main() {
     val pointsList = List(2) { i ->

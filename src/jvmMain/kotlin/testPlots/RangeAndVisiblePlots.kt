@@ -1,12 +1,12 @@
 package testPlots
 
 
-import toHtml
-import builders.KotPlot
-import constructables.Axis
-import constructables.Color
-import constructables.Point
-import jvmExtensions.show
+import kotplot.toHtml
+import kotplot.builders.KotPlot
+import kotplot.constructables.Axis
+import kotplot.constructables.Color
+import kotplot.constructables.Point
+import kotplot.jvmExtensions.show
 import kotlinx.serialization.Serializable
 
 fun main() {
@@ -35,7 +35,11 @@ fun main() {
         plotCell(row = 1) {
             layout(
                 title = "range = 0.0..6.0",
-                xAxis = Axis(title = "X values", color = Color.Black, range = 0.0..6.0)
+                xAxis = Axis(
+                    title = "X values",
+                    color = Color.Black,
+                    range = 0.0..6.0
+                )
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
@@ -44,7 +48,11 @@ fun main() {
         plotCell(row = 2) {
             layout(
                 title = "range = -3.0..3.0",
-                xAxis = Axis(title = "X values", color = Color.Black, range = -3.0..3.0)
+                xAxis = Axis(
+                    title = "X values",
+                    color = Color.Black,
+                    range = -3.0..3.0
+                )
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")
@@ -52,7 +60,11 @@ fun main() {
         plotCell(row = 2) {
             layout(
                 title = "range = 3.0..9.0",
-                xAxis = Axis(title = "X values", color = Color.Black, range = 3.0..9.0)
+                xAxis = Axis(
+                    title = "X values",
+                    color = Color.Black,
+                    range = 3.0..9.0
+                )
             )
             scatterTrace(points = pointsList[0], name = "Trace1")
             scatterTrace(points = pointsList[1], name = "Trace2")

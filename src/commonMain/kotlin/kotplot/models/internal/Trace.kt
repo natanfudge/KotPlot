@@ -1,9 +1,10 @@
-package models.internal
+package kotplot.models.internal
 
-import builders.Symbol
+import kotplot.builders.Symbol
 import kotlinx.serialization.*
-import kotlinx.serialization.internal.CommonEnumSerializer
-import temp.*
+import kotplot.temp.SerialEnum
+import kotplot.temp.TraceModeSerializer
+import kotplot.temp.TraceTypeSerializer
 
 
 @Serializable
@@ -23,7 +24,7 @@ internal data class Trace(
 
 
 @Serializable(TraceModeSerializer::class)
-internal enum class TraceMode(override val serialName: String?)  : SerialEnum{
+internal enum class TraceMode(override val serialName: String?)  : SerialEnum {
 
     /**
      * Lines will connect between the points.
@@ -41,7 +42,7 @@ internal enum class TraceMode(override val serialName: String?)  : SerialEnum{
 
 
 @Serializable(TraceTypeSerializer::class)
-internal enum class TraceType(override val serialName: String?)  : SerialEnum{
+internal enum class TraceType(override val serialName: String?)  : SerialEnum {
     Scatter("scatter")
 }
 

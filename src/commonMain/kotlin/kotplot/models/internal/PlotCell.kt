@@ -1,6 +1,6 @@
-package models.internal
+package kotplot.models.internal
 
-import models.Plot
+import kotplot.models.Plot
 
 internal data class PlotCell(
     val plot: Plot,

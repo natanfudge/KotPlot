@@ -1,13 +1,13 @@
 package testPlots
 
 
-import builders.KotPlot
-import builders.Symbol
-import constructables.Point
-import jvmExtensions.show
+import kotplot.builders.KotPlot
+import kotplot.builders.Symbol
+import kotplot.constructables.Point
+import kotplot.jvmExtensions.show
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import models.*
+import kotplot.models.Plot
 
 fun main() {
     val pointsList = List(20) { i ->

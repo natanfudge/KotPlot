@@ -1,6 +1,6 @@
-package models.internal
+package kotplot.models.internal
 
-import builders.Shape
+import kotplot.builders.Shape
 import kotlinx.serialization.Serializable
 
 @Serializable

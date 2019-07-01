@@ -1,11 +1,11 @@
-package builders
+package kotplot.builders
 
-import constructables.Axis
-import constructables.PlotConfig
-import constructables.Point
-import models.*
-import models.internal.Layout
-import models.internal.Trace
+import kotplot.constructables.Axis
+import kotplot.constructables.PlotConfig
+import kotplot.constructables.Point
+import kotplot.models.Plot
+import kotplot.models.internal.Layout
+import kotplot.models.internal.Trace
 
 class Plot2DBuilder(private val config: PlotConfig) : Builder() {
 

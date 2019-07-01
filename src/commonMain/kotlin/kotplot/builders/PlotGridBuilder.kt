@@ -1,8 +1,8 @@
-package builders
+package kotplot.builders
 
-import models.internal.PlotCell
-import constructables.PlotConfig
-import models.PlotGrid
+import kotplot.models.internal.PlotCell
+import kotplot.constructables.PlotConfig
+import kotplot.models.PlotGrid
 
 class PlotGridBuilder internal constructor(private val title: String) : Builder() {
     private val cells: MutableList<PlotCell> = mutableListOf()

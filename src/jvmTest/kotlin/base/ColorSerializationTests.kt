@@ -4,7 +4,7 @@ package base
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import constructables.Color
+import kotplot.constructables.Color
 import org.junit.Test
 import kotlin.test.assertEquals
 

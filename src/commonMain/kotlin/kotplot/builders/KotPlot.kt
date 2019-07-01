@@ -1,7 +1,8 @@
-package builders
+package kotplot.builders
 
-import constructables.PlotConfig
-import models.*
+import kotplot.constructables.PlotConfig
+import kotplot.models.Plot
+import kotplot.models.PlotGrid
 
 object KotPlot {
     /**

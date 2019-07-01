@@ -1,4 +1,4 @@
-package builders
+package kotplot.builders
 
 @DslMarker
 annotation class BuilderMarker

@@ -1,4 +1,4 @@
-package temp
+package kotplot.temp
 
 interface SerialEnum {
     val serialName: String?

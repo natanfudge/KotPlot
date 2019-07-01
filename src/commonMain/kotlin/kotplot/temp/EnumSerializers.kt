@@ -1,11 +1,11 @@
-package temp
+package kotplot.temp
 
-import builders.Shape
-import builders.Symbol
-import constructables.AxisType
+import kotplot.builders.Shape
+import kotplot.builders.Symbol
+import kotplot.constructables.AxisType
 import kotlinx.serialization.internal.CommonEnumSerializer
-import models.internal.TraceMode
-import models.internal.TraceType
+import kotplot.models.internal.TraceMode
+import kotplot.models.internal.TraceType
 
 internal object TraceModeSerializer : CommonEnumSerializer<TraceMode>(
     "TraceMode",

@@ -1,9 +1,8 @@
-package constructables
+package kotplot.constructables
 
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import temp.AxisTypeSerializer
-import temp.SerialEnum
+import kotplot.temp.AxisTypeSerializer
+import kotplot.temp.SerialEnum
 
 
 @Serializable
@@ -37,7 +36,7 @@ data class Axis internal constructor(
 
 
 @Serializable(AxisTypeSerializer::class)
-enum class AxisType(override val serialName: String?) : SerialEnum{
+enum class AxisType(override val serialName: String?) : SerialEnum {
     /**
      * Points on the axis will be distributed evenly on the range.
      */

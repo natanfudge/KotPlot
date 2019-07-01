@@ -1,4 +1,4 @@
-package constructables
+package kotplot.constructables
 
 /**
  * A two-dimensional point with [x] and [y] coordinates

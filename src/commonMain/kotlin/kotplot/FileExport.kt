@@ -1,14 +1,17 @@
 @file:Suppress("UnusedImport")
 
-import constructables.PlotConfig
+package kotplot
+
+import kotplot.constructables.PlotConfig
 import kotlinx.html.*
 import kotlinx.html.stream.createHTML
-import models.*
-import models.internal.Layout
-import models.internal.Trace
+import kotplot.models.internal.Layout
+import kotplot.models.internal.Trace
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import models.internal.PlotCell
+import kotplot.models.internal.PlotCell
+import kotplot.models.Plot
+import kotplot.models.PlotGrid
 import kotlinx.serialization.*
 
 /**

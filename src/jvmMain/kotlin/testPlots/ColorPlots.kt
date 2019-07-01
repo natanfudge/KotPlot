@@ -1,12 +1,11 @@
 package testPlots
 
 
-import toHtml
-import builders.KotPlot
-import constructables.Axis
-import constructables.Color
-import constructables.Point
-import jvmExtensions.show
+import kotplot.builders.KotPlot
+import kotplot.constructables.Axis
+import kotplot.constructables.Color
+import kotplot.constructables.Point
+import kotplot.jvmExtensions.show
 
 fun main() {
     val pointsList = List(2) { i ->

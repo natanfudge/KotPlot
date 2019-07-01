@@ -1,4 +1,4 @@
-package constructables
+package kotplot.constructables
 
 import kotlinx.serialization.Serializable
 

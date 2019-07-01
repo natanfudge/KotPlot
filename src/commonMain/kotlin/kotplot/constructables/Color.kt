@@ -1,6 +1,6 @@
-package constructables
+package kotplot.constructables
 
-import InvalidPlotException
+import kotplot.InvalidPlotException
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.StringDescriptor
 

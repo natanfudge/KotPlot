@@ -1,9 +1,9 @@
-package models
+package kotplot.models
 
-import constructables.PlotConfig
+import kotplot.constructables.PlotConfig
 import kotlinx.serialization.Serializable
-import models.internal.Layout
-import models.internal.Trace
+import kotplot.models.internal.Layout
+import kotplot.models.internal.Trace
 
 @Serializable
 data class Plot internal constructor(

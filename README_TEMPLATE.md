@@ -6,6 +6,7 @@ In `build.gradle`, add this:
 ```
 repositories {
    //...
+   jcenter()
     maven { url "https://dl.bintray.com/natanfudge/kotplot"}
 }
 ```

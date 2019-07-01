@@ -1,13 +1,13 @@
-package builders
+package kotplot.builders
 
 import kotlinx.serialization.Serializable
-import models.internal.LineType
-import models.internal.Marker
-import models.internal.Trace
-import models.internal.TraceMode
-import temp.SerialEnum
-import temp.ShapeSerializer
-import temp.SymbolSerializer
+import kotplot.models.internal.LineType
+import kotplot.models.internal.Marker
+import kotplot.models.internal.Trace
+import kotplot.models.internal.TraceMode
+import kotplot.temp.SerialEnum
+import kotplot.temp.ShapeSerializer
+import kotplot.temp.SymbolSerializer
 
 class TraceBuilder(
     private val x: List<Double>,
