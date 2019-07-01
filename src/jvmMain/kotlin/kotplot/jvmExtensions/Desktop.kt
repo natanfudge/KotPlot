@@ -7,27 +7,21 @@ import java.awt.Desktop
 import java.io.File
 
 /**
- * Create a standalone html with the page
+ * Shows the plot on a browser
  * @param file the reference to html file. If null, create a temporary file
- * @param show if true, start the browser after file is created
  */
-fun Plot.show(file: File? = null, show: Boolean = true) {
+fun Plot.show(file: File? = null) {
     val actualFile = file ?: File.createTempFile("tempPlot", ".html")
     actualFile.writeText(this.toHtml())
-    if (show) {
-        Desktop.getDesktop().browse(actualFile.toURI())
-    }
+    Desktop.getDesktop().browse(actualFile.toURI())
 }
 
 /**
- * Create a standalone html with the page
+ * Shows the plot on a browser
  * @param file the reference to html file. If null, create a temporary file
- * @param show if true, start the browser after file is created
  */
-fun PlotGrid.show(file: File? = null, show: Boolean = true) {
+fun PlotGrid.show(file: File? = null) {
     val actualFile = file ?: File.createTempFile("tempPlot", ".html")
     actualFile.writeText(this.toHtml())
-    if (show) {
-        Desktop.getDesktop().browse(actualFile.toURI())
-    }
+    Desktop.getDesktop().browse(actualFile.toURI())
 }
