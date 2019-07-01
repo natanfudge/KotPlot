@@ -50,7 +50,7 @@ fun PlotGrid.bindTo(id: String) {
     if (node == null) throw InvalidPlotException("There is no dom node with the id '$id'.")
 
     val rows = this.sortedRows()
-    node.innerHTML = createHTML().div("container") {
+    node.innerHTML = createHTML().div(/*"container"*/) {
         rows.forEach {
             plotRow((it))
         }
@@ -65,29 +65,37 @@ fun PlotGrid.bindTo(id: String) {
 }
 
 
-//TODO: implement plotgrid on JS
 //TODO think of a more effective way to test plots on js and jvm
 
 
 //TODO: comment this out when publishing
-fun main() {
-    val list = listOf(Point(1, 1), Point(2, 2))
-    KotPlot.plotGrid {
-        plotCell(size = 6, row = 1) {
-            scatterTrace(list)
-        }
-        plotCell(size = 6, row = 1) {
-            scatterTrace(list)
-        }
-    }.bindTo("tester")
-//    Examples.linesPlots().bindTo("tester")
-//    Examples.sizePlots().bindTo("tester2")
-//    Examples.rangeAndVisiblePlots().bindTo("tester3")
-//    Examples.colorPlots().bindTo("tester4")
-//    Examples.columnPlots().bindTo("tester5")
-//    Examples.configPlots().bindTo("tester6")
-//    Examples.markersPlots().bindTo("tester7")
-//    Examples.axisTypePlots().bindTo("tester8")
-
-
-}
+//fun main() {
+//    val list = listOf(Point(0, 0), Point(1, 1), Point(2, 2))
+//    KotPlot.plotGrid {
+//        plotCell(row = 1) {
+//            scatterTrace(list)
+//        }
+//        plotCell(row = 1) {
+//            scatterTrace(list)
+//        }
+//        plotCell(row = 1) {
+//            scatterTrace(list)
+//        }
+//        plotCell(row = 1) {
+//            scatterTrace(list)
+//        }
+//        plotCell(row = 1) {
+//            scatterTrace(list)
+//        }
+//    }.bindTo("tester")
+////    Examples.linesPlots().bindTo("tester")
+////    Examples.sizePlots().bindTo("tester2")
+////    Examples.rangeAndVisiblePlots().bindTo("tester3")
+////    Examples.colorPlots().bindTo("tester4")
+////    Examples.columnPlots().bindTo("tester5")
+////    Examples.configPlots().bindTo("tester6")
+////    Examples.markersPlots().bindTo("tester7")
+////    Examples.axisTypePlots().bindTo("tester8")
+//
+//
+//}

@@ -106,17 +106,18 @@ internal fun FlowContent.gridScript(grid: PlotGrid) {
 
 internal fun FlowContent.plotRow(row: Pair<Int, List<PlotCell>>) = div("row") {
     row.second.mapIndexed { idx, cell ->
-        val size = cell.size
-        if (cell.size != null) {
+        val size = cell.size ?:  12 / row.second.size
+//        if (cell.size != null) {
             //"col col-xs-$size col-sm-$size col-md-$size col-lg-$size"
-            div("col-sm-6") {
-                id = "${row.first}-$idx"
+            div("col-xs-$size col-sm-$size col-md-$size col-lg-$size") {
+                div{id = "${row.first}-$idx"}
+
             }
-        } else {
+        /*} else {
             div("col") {
                 id = "${row.first}-$idx"
             }
-        }
+        }*/
     }
 }
 

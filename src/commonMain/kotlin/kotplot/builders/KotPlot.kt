@@ -13,6 +13,12 @@ object KotPlot {
         Plot2DBuilder(config).apply(init).build()
 
 
+    /**
+     * Creates multiple plots.
+     * @param title This will be the title of the page on the JVM version. TODO: make it jvm only...
+     * @param init Call [plotCell][PlotGridBuilder.plotCell] here to add plots in a similar way to [KotPlot.plot].
+     * It's recommended to only put up to 6 plots in each row, otherwise the plots might get 'smushed'.
+     */
     fun plotGrid(title: String = "", init: PlotGridBuilder.() -> Unit): PlotGrid =
         PlotGridBuilder(title).apply(init).build()
 

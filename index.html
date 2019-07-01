@@ -15,7 +15,25 @@
 </head>
 <body>
 
-<div id="tester"></div>
+<!--<div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-6">-->
+<!--                <div id="tester2"></div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-6">-->
+<!--                <div id="tester3"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
+<div id="tester">
+
+</div>
+
+
 <!--<div class = "row">-->
 <!--    <div class = "col-6">Left</div>-->
 <!--     <div class = "col-6">Right</div>-->
@@ -36,6 +54,22 @@
 
 <!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+<script>
+
+    Plotly.plot("tester2", [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16]
+    }], {
+        margin: {t: 0}
+    });
+
+    Plotly.plot("tester3", [{
+        x: [1, 2, 3, 4, 5],
+        y: [1, 2, 4, 8, 16]
+    }], {
+        margin: {t: 0}
+    });
+</script>
 <script src="build/js/packages/KotPlot/kotlin/KotPlot.js"></script>
 </body>
 </html>
