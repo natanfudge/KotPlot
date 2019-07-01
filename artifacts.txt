@@ -1,0 +1,10 @@
+Artifacts:
+
+//js
+com.fudge:kotplot-js:0.4
+//jvm
+com.fudge:kotplot-jvm:0.4
+//kotlinMultiplatform
+com.fudge:kotplot-kotlinMultiplatform:0.4
+//metadata
+com.fudge:kotplot-metadata:0.4
