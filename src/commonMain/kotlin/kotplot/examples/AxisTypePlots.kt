@@ -6,10 +6,28 @@ import kotplot.constructables.Axis
 import kotplot.constructables.AxisType
 import kotplot.constructables.Point
 import kotplot.models.PlotGrid
-object Examples{
+import kotplot.toHtml
+import kotplot.toJs
+import kotlin.js.JsName
+
+fun testJS() {
+    println("kotlin to js!")
+}
+
+fun main() {
+    val plot = GridExamples.axisTypePlots()
+    println(plot.toHtml())
+}
+
+object PlotExamples {
 
 }
-internal fun Examples.axisTypePlots()  : PlotGrid{
+
+object GridExamples {
+
+}
+
+fun GridExamples.axisTypePlots() {
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),
@@ -21,7 +39,7 @@ internal fun Examples.axisTypePlots()  : PlotGrid{
 
         )
     }
-    return KotPlot.plotGrid {
+    val plot =  KotPlot.plotGrid {
         plotCell(row = 1) {
             layout(title = "Default (Linear)")
             scatterTrace(points = pointsList[0], name = "Trace1")
@@ -74,6 +92,7 @@ internal fun Examples.axisTypePlots()  : PlotGrid{
         }
 
     }
+
 
 }
 

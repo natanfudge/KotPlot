@@ -3,126 +3,43 @@
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-<!--    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
-<!--    <script type="text/javascript" src="build/js/packages/KotPlot/kotlin/lib/kotlin.js"></script>-->
-<!--    <script src="build/js/packages/KotPlot/kotlin/lib/kotlinx-html-js.js"></script>-->
-<!--    <script src="build/js/packages/KotPlot/kotlin/lib/kotlinx-serialization-kotlinx-serialization-runtime.js"></script>-->
-    <script src="https://unpkg.com/kotlin-playground@1" data-selector="code"></script>
-<!--    <script src="https://cdn.jsdelivr.net/npm/kotlinx-html@0.6.12/kotlinx-html-js.min.js"></script>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="build/js/packages/KotPlot/kotlin/lib/kotlin.js"></script>
+    <script src="build/js/packages/KotPlot/kotlin/lib/kotlinx-html-js.js"></script>
+    <script src="build/js/packages/KotPlot/kotlin/lib/kotlinx-serialization-kotlinx-serialization-runtime.js"></script>
+
 </head>
 <body>
-<code data-target-platform="js" data-js-libs="https://cdn.jsdelivr.net/npm/@data2viz/data2viz@latest//d2v-viz-js.js
-">
-    import jquery.jq
-    import io.data2viz.viz.*
 
 
-    fun main(){
-    jq(".code").html("Asdfasdf")
-}
-
-</code>
-
-<!--<code data-target-platform="js" data-js-libs = "build/js/packages/KotPlot/kotlin/lib/kotlinx-html-js.js,-->
-<!--build/js/packages/KotPlot/kotlin/lib/kotlinx-serialization-kotlinx-serialization-runtime.js,-->
-<!--build/js/packages/KotPlot/kotlin/KotPlot.js,-->
-<!--https://cdn.jsdelivr.net/npm/kotlinx-html@0.6.12/kotlinx-html-js.min.js-->
-<!--">-->
-<!--&lt;!&ndash;    import kotplot.constructables.Point&ndash;&gt;-->
-<!--    import kotlinx.html-->
-<!--&lt;!&ndash;    import kotlinx.html.*&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlinx.html.stream.createHTML&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlinx.serialization.json.Json&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlinx.serialization.json.JsonConfiguration&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.constructables.PlotConfig&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.models.Plot&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.models.internal.Layout&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.models.internal.Trace&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlin.js.JSON&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.examples.*&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.models.PlotGrid&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlin.browser.document&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotlinx.serialization.*&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.builders.KotPlot&ndash;&gt;-->
-<!--&lt;!&ndash;    import kotplot.constructables.Point&ndash;&gt;-->
-<!--    val list = listOf(Point(0, 0), Point(1, 1), Point(2, 2))-->
-<!--    KotPlot.plotGrid {-->
-<!--    plotCell(row = 1) {-->
-<!--    scatterTrace(list)-->
-<!--    }-->
-<!--    plotCell(row = 1) {-->
-<!--    scatterTrace(list)-->
-<!--    }-->
-<!--    plotCell(row = 1) {-->
-<!--    scatterTrace(list)-->
-<!--    }-->
-<!--    plotCell(row = 1) {-->
-<!--    scatterTrace(list)-->
-<!--    }-->
-<!--    plotCell(row = 1) {-->
-<!--    scatterTrace(list)-->
-<!--    }-->
-<!--    }.bindTo("tester")-->
-<!--</code>-->
-<!--&lt;!&ndash;<div>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div class="container">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="row">&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div id="tester2"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;                <div id="tester3"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-<!--<div id="tester">-->
-
-<!--</div>-->
 
 
-<!--<div class = "row">-->
-<!--    <div class = "col-6">Left</div>-->
-<!--     <div class = "col-6">Right</div>-->
-<!--</div>-->
 
-<!--<div id="tester2"></div>-->
-<!--<div id="tester3"></div>-->
-<!--<div id="tester4"></div>-->
-<!--<div id="tester5"></div>-->
-<!--<div id="tester6"></div>-->
-<!--<div id="tester7"></div>-->
-<!--<div id="tester8"></div>-->
-<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+<div id="tester">
 
-<!--&lt;!&ndash; jQuery library &ndash;&gt;-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+</div>
+<script src = "build/js/packages/KotPlot/kotlin/KotPlot.js"></script>
 
-<!--&lt;!&ndash; Latest compiled JavaScript &ndash;&gt;-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-<!--<script>-->
 
-<!--    // Plotly.plot("tester2", [{-->
-<!--    //     x: [1, 2, 3, 4, 5],-->
-<!--    //     y: [1, 2, 4, 8, 16]-->
-<!--    // }], {-->
-<!--    //     margin: {t: 0}-->
-<!--    // });-->
-<!--    //-->
-<!--    // Plotly.plot("tester3", [{-->
-<!--    //     x: [1, 2, 3, 4, 5],-->
-<!--    //     y: [1, 2, 4, 8, 16]-->
-<!--    // }], {-->
-<!--    //     margin: {t: 0}-->
-<!--    // });-->
-<!--</script>-->
-<!--<script src="build/js/packages/KotPlot/kotlin/KotPlot.js"></script>-->
+<script>
+     KotPlot.kotplot.playTest();
+    // bindTo(linesPlots(PlotExamples_getInstance()), 'tester');
+    // var plot = KotPlot.kotplot.examples.GridExamples.axisTypePlots();
+    // plot.bindTo("tester");
+    // KotPlot.kotplot.examples.GridExamples_getInstance().axisTypePlots()
+    // var x = KotPlot.foo.bar.Obj.func();
+    // console.log(x);
+
+    // var x = KotPlot.kotplot.examples.GridExamples_axisTypePlots();
+    // KotPlot.kotplot.bindPlotToNode(x,"tester");
+    // x.bindTo("tester")
+    // var x = KotPlot.foo.bar.func();
+    // console.log(x);
+
+</script>
 </body>
 </html>

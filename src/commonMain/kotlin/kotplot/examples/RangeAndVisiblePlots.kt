@@ -1,7 +1,6 @@
 package kotplot.examples
 
 
-import kotplot.toHtml
 import kotplot.builders.KotPlot
 import kotplot.constructables.Axis
 import kotplot.constructables.Color
@@ -9,7 +8,7 @@ import kotplot.constructables.Point
 import kotlinx.serialization.Serializable
 import kotplot.models.PlotGrid
 
-fun Examples.rangeAndVisiblePlots()  : PlotGrid{
+internal fun GridExamples.rangeAndVisiblePlots()  : PlotGrid{
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),

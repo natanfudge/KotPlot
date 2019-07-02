@@ -25,6 +25,7 @@ internal fun String.toJsObject() = JSON.parse<dynamic>(this)
 /**
  * Returns the javascript plotly function to create this plot as a string.
  */
+//@JsName("bindPlotToNode")
 fun Plot.bindTo(id: String) {
     val json = Json(JsonConfiguration.Stable.copy(prettyPrint = true))
     val traces = json.stringify(Trace.serializer().list, data).toJsObject()
@@ -69,8 +70,9 @@ fun PlotGrid.bindTo(id: String) {
 
 //TODO: comment this out when publishing
 
+fun playTest() = PlotExamples.linesPlots().bindTo("tester")
+
 fun main() {
-    jq()
 //    val list = listOf(Point(0, 0), Point(1, 1), Point(2, 2))
 //    KotPlot.plotGrid {
 //        plotCell(row = 1) {
@@ -89,14 +91,15 @@ fun main() {
 //            scatterTrace(list)
 //        }
 //    }.bindTo("tester")
-//    Examples.linesPlots().bindTo("tester")
-//    Examples.sizePlots().bindTo("tester2")
-//    Examples.rangeAndVisiblePlots().bindTo("tester3")
-//    Examples.colorPlots().bindTo("tester4")
-//    Examples.columnPlots().bindTo("tester5")
-//    Examples.configPlots().bindTo("tester6")
-//    Examples.markersPlots().bindTo("tester7")
-//    Examples.axisTypePlots().bindTo("tester8")
+//    playTest()
+//    PlotExamples.linesPlots().bindTo("tester")
+//    PlotExamples.sizePlots().bindTo("tester2")
+//    PlotExamples.rangeAndVisiblePlots().bindTo("tester3")
+//    PlotExamples.colorPlots().bindTo("tester4")
+//    PlotExamples.columnPlots().bindTo("tester5")
+//    PlotExamples.configPlots().bindTo("tester6")
+//    PlotExamples.markersPlots().bindTo("tester7")
+//    PlotExamples.axisTypePlots().bindTo("tester8")
 
 
 }

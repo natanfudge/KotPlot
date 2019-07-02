@@ -4,11 +4,9 @@ package kotplot.examples
 import kotplot.builders.KotPlot
 import kotplot.builders.Symbol
 import kotplot.constructables.Point
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import kotplot.models.Plot
 
-internal fun Examples.markersPlots()  : Plot{
+internal fun PlotExamples.markersPlots()  : Plot{
     val pointsList = List(20) { i ->
         listOf(
             Point(i * 5, i * 5),

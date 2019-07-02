@@ -6,7 +6,7 @@ import kotplot.constructables.PlotConfig
 import kotplot.constructables.Point
 import kotplot.models.PlotGrid
 
-internal fun Examples.configPlots() : PlotGrid {
+internal fun GridExamples.configPlots() : PlotGrid {
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),

@@ -11,7 +11,7 @@ import kotplot.temp.TraceTypeSerializer
 internal data class Trace(
     val x: List<Double>,
     val y: List<Double>,
-    val text: List<String?>,
+    val text: List<String?> = listOf(),
     val name: String,
     val mode: TraceMode?,
     val type: TraceType = TraceType.Scatter,

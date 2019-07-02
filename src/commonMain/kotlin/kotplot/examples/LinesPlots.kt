@@ -3,12 +3,10 @@ package kotplot.examples
 
 import kotplot.builders.KotPlot
 import kotplot.constructables.Point
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import kotplot.builders.Shape
 import kotplot.models.Plot
 
-internal fun Examples.linesPlots()  : Plot{
+internal fun PlotExamples.linesPlots()  : Plot{
     val pointsList = List(7) { i ->
         listOf(
             Point(i * 5, i * 5),

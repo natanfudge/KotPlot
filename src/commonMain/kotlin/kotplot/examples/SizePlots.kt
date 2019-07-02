@@ -7,7 +7,7 @@ import kotplot.models.PlotGrid
 
 
 
-fun Examples.sizePlots(): PlotGrid {
+internal fun GridExamples.sizePlots(): PlotGrid {
     val pointsList = List(2) { i ->
         listOf(
             Point(i * 5, i * 5, "Point1"),

@@ -2,7 +2,7 @@ package doc
 
 import kotplot.builders.KotPlot
 import kotplot.constructables.Point
-import kotplot.jvmExtensions.show
+//import kotplot.jvmExtensions.show
 
 //TODO: change README to html so I can have tabs for jvm/js/native, and kotlin-dsl/groovy-dsl
 fun main() {
@@ -17,5 +17,5 @@ fun main() {
     }
 
 
-    plot.show()
+//    plot.show()
 }

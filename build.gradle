@@ -221,3 +221,11 @@ bintrayUpload.doFirst {
 //The task of bintrayUpload depends on publishToMavenLocal set in the previous section.
 // This will create maven artifacts when running bintrayUplaod's task.
 bintrayUpload.dependsOn publishToMavenLocal
+
+task generateTests{
+    group = "scripts"
+    description = "Produces a greeting"
+    doLast{
+        println("Hello, World!")
+    }
+}
